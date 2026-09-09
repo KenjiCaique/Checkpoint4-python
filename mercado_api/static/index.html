@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header class="topo">
+        <div class="topo-conteudo">
+            <span class="logo">Mercado</span>
+            <nav class="abas">
+                <button class="aba-botao ativo" data-aba="produtos">Produtos</button>
+                <button class="aba-botao" data-aba="categorias">Categorias</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="conteudo">
+        <section id="aba-produtos" class="aba">
+            <div class="grade">
+                <div class="cartao form-cartao">
+                    <h2 id="titulo-form-produto">Novo produto</h2>
+                    <form id="form-produto">
+                        <label>Nome
+                            <input type="text" id="produto-nome" placeholder="Ex: Coca-Cola 350ml" required>
+                        </label>
+                        <label>Preço (R$)
+                            <input type="number" step="0.01" min="0" id="produto-preco" placeholder="0,00" required>
+                        </label>
+                        <label>Estoque
+                            <input type="number" min="0" id="produto-estoque" placeholder="0">
+                        </label>
+                        <label>Categoria
+                            <select id="produto-categoria" required></select>
+                        </label>
+                        <p id="aviso-sem-categoria" class="aviso oculto">
+                            Cadastre uma categoria antes de adicionar produtos.
+                        </p>
+                        <div class="botoes-form">
+                            <button type="submit" id="botao-produto">Adicionar produto</button>
+                            <button type="button" id="botao-cancelar-produto" class="botao-cancelar oculto">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="cartao lista-cartao">
+                    <div class="lista-cabecalho">
+                        <h2>Produtos cadastrados</h2>
+                        <span id="contador-produtos" class="contador">0</span>
+                    </div>
+                    <div class="tabela-wrapper">
+                        <table id="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Categoria</th>
+                                    <th>Preço</th>
+                                    <th>Estoque</th>
+                                    <th colspan="2"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="corpo-tabela-produtos"></tbody>
+                        </table>
+                        <p id="vazio-produtos" class="vazio oculto">Nenhum produto cadastrado ainda.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="aba-categorias" class="aba oculto">
+            <div class="grade">
+                <div class="cartao form-cartao">
+                    <h2 id="titulo-form-categoria">Nova categoria</h2>
+                    <form id="form-categoria">
+                        <label>Nome
+                            <input type="text" id="categoria-nome" placeholder="Ex: Bebidas" required>
+                        </label>
+                        <label>Descrição
+                            <input type="text" id="categoria-descricao" placeholder="Ex: Refrigerantes e sucos">
+                        </label>
+                        <div class="botoes-form">
+                            <button type="submit" id="botao-categoria">Adicionar categoria</button>
+                            <button type="button" id="botao-cancelar-categoria" class="botao-cancelar oculto">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="cartao lista-cartao">
+                    <div class="lista-cabecalho">
+                        <h2>Categorias cadastradas</h2>
+                        <span id="contador-categorias" class="contador">0</span>
+                    </div>
+                    <ul id="lista-categorias"></ul>
+                    <p id="vazio-categorias" class="vazio oculto">Nenhuma categoria cadastrada ainda.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
